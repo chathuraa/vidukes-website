@@ -113,6 +113,25 @@ a {
   flex: 0 0 auto;
 }
 
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo-title {
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.logo-subtitle {
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
 .nav {
   display: flex;
   gap: 20px;
@@ -146,6 +165,10 @@ a {
   background: var(--brand);
   color: #2a1a05;
   box-shadow: 0 14px 30px rgba(243, 199, 123, 0.25);
+}
+
+.nav .button.ghost {
+  box-shadow: 0 0 22px rgba(255, 223, 122, 0.35);
 }
 
 .button.primary:hover {
@@ -192,6 +215,12 @@ a {
   padding: 4px 10px;
   border-radius: 12px;
   display: inline-block;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero h1 span:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 24px rgba(255, 196, 87, 0.25);
 }
 
 .lead {
@@ -199,6 +228,12 @@ a {
   color: var(--muted);
   max-width: 560px;
   line-height: 1.75;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.lead:hover {
+  color: #e5ecf9;
+  transform: translateY(-1px);
 }
 
 .hero-actions {
