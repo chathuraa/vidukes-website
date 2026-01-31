@@ -487,7 +487,7 @@ a {
   cursor: ew-resize;
   padding: 0 16px;
   z-index: 2;
-  touch-action: none;
+  touch-action: pan-y;
 }
 
 .compare-line {
@@ -586,6 +586,22 @@ a {
 
   .highlight {
     margin: 0 4vw;
+  }
+
+  .compare {
+    aspect-ratio: auto;
+    height: min(60vh, 420px);
+    border-radius: 20px;
+  }
+
+  .compare-knob {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+
+  .compare-line {
+    width: 2px;
   }
 }
 

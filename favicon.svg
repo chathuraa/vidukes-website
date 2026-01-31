@@ -1,0 +1,29 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  role="img"
+  aria-label="BrightWay Driveway Wash favicon"
+>
+  <rect width="64" height="64" rx="14" fill="#0b1324" />
+  <path
+    d="M28 12c-6 10-9 16-9 22a13 13 0 0 0 26 0c0-6-4-12-9-22Z"
+    fill="none"
+    stroke="#c0d7ff"
+    stroke-width="4"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M18 44h28l4 12H14l4-12Z"
+    fill="none"
+    stroke="#ffdf7a"
+    stroke-width="4"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M30 28l16 6"
+    fill="none"
+    stroke="#ffdf7a"
+    stroke-width="4"
+    stroke-linecap="round"
+  />
+</svg>

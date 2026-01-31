@@ -108,6 +108,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (compare) {
     const before = compare.querySelector(".compare-before");
     const handle = compare.querySelector(".compare-handle");
+    let dragging = false;
+    let startX = 0;
+    let startY = 0;
 
     const setPosition = (clientX) => {
       const rect = compare.getBoundingClientRect();
@@ -118,11 +121,20 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const onPointerDown = (event) => {
-      compare.setPointerCapture(event.pointerId);
-      setPosition(event.clientX);
+      dragging = false;
+      startX = event.clientX;
+      startY = event.clientY;
     };
 
     const onPointerMove = (event) => {
+      const dx = Math.abs(event.clientX - startX);
+      const dy = Math.abs(event.clientY - startY);
+      if (!dragging) {
+        if (dx < 6 && dy < 6) return;
+        if (dx <= dy) return;
+        dragging = true;
+        compare.setPointerCapture(event.pointerId);
+      }
       if (!compare.hasPointerCapture(event.pointerId)) return;
       setPosition(event.clientX);
     };
@@ -131,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (compare.hasPointerCapture(event.pointerId)) {
         compare.releasePointerCapture(event.pointerId);
       }
+      dragging = false;
     };
 
     compare.addEventListener("pointerdown", onPointerDown);
