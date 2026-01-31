@@ -103,4 +103,52 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 200);
     }
   }
+
+  const compare = document.querySelector("[data-compare]");
+  if (compare) {
+    const before = compare.querySelector(".compare-before");
+    const handle = compare.querySelector(".compare-handle");
+
+    const setPosition = (clientX) => {
+      const rect = compare.getBoundingClientRect();
+      const clamped = Math.min(Math.max(clientX - rect.left, 0), rect.width);
+      const percentage = (clamped / rect.width) * 100;
+      compare.style.setProperty("--compare-x", `${percentage}%`);
+      handle.setAttribute("aria-valuenow", Math.round(percentage));
+    };
+
+    const onPointerDown = (event) => {
+      compare.setPointerCapture(event.pointerId);
+      setPosition(event.clientX);
+    };
+
+    const onPointerMove = (event) => {
+      if (!compare.hasPointerCapture(event.pointerId)) return;
+      setPosition(event.clientX);
+    };
+
+    const onPointerUp = (event) => {
+      if (compare.hasPointerCapture(event.pointerId)) {
+        compare.releasePointerCapture(event.pointerId);
+      }
+    };
+
+    compare.addEventListener("pointerdown", onPointerDown);
+    compare.addEventListener("pointermove", onPointerMove);
+    compare.addEventListener("pointerup", onPointerUp);
+    compare.addEventListener("pointerleave", onPointerUp);
+
+    handle.addEventListener("keydown", (event) => {
+      const step = 5;
+      const current = Number(handle.getAttribute("aria-valuenow")) || 50;
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        setPosition(compare.getBoundingClientRect().left + ((current - step) / 100) * compare.offsetWidth);
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        setPosition(compare.getBoundingClientRect().left + ((current + step) / 100) * compare.offsetWidth);
+      }
+    });
+  }
 });
