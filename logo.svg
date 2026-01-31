@@ -1,0 +1,19 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Viduk Wash logo">
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path
+      d="M20 6C14 16 10 22 10 28a10 10 0 0 0 20 0c0-6-4-12-10-22Z"
+      stroke="#C0D7FF"
+      stroke-width="3"
+    />
+    <path d="M30 18l10 3" stroke="#C0D7FF" stroke-width="3" />
+    <path d="M30 24l12 0" stroke="#C0D7FF" stroke-width="3" />
+    <path d="M30 30l10 6" stroke="#C0D7FF" stroke-width="3" />
+    <path
+      d="M14 36H50l8 22H6l8-22Z"
+      stroke="#FFDF7A"
+      stroke-width="3"
+    />
+    <path d="M24 36l-4 22" stroke="#FFDF7A" stroke-width="3" />
+    <path d="M40 36l4 22" stroke="#FFDF7A" stroke-width="3" />
+  </g>
+</svg>
